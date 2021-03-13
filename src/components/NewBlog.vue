@@ -1,0 +1,62 @@
+<template>
+    <div id="newBlog">
+        <div class="inputs">
+        <label for="newTitle">Titre de la page</label>
+        <input type="text" v-model="newTitle">
+        </div>
+        
+        <div class="inputs">
+        <label for="newMetaTitle">Meta Title</label>
+        <input type="text" v-model="newMetaTitle">
+        </div>
+        
+        <div class="inputs">
+        <label for="newMetaDesc">Meta Description</label>
+        <input type="text" v-model="newMetaDesc">
+        </div>
+        <div class="inputs">
+        <label for="newPost">Corps du post</label>
+        <textarea v-model="newPost"></textarea>
+        </div>
+        
+    </div>
+        <button @click="addPost" >Créer la page</button>
+</template>
+
+
+
+<script>
+export default {
+name: 'newBlog',
+    
+    data(){
+        return {
+            newTitle:'',
+            newMetaTitle:'',
+            newMetaDesc:'',
+            newPost:'',
+        }
+    }
+    }
+</script>
+    
+    
+<style scoped>
+#newBlog{
+    
+    width: 30%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+}
+    label{
+        text-align: left;
+        }
+.inputs{
+    margin: 5% 0 5% 20%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+</style>
