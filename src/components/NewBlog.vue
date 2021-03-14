@@ -45,10 +45,11 @@ name: 'newBlog',
                 let post = {
                     title: this.newTitle,
                     metaTitle: this.newMetaTitle,
-                    decription: this.newMetaDesc,
+                    description: this.newMetaDesc,
                     contentPost: this.newPost,
                 }
                 this.$store.commit('addPost',post);
+                this.$router.push('/blog');
             }
         }
     }

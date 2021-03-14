@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="post" v-for="post in allItem" :key="post">
+        <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li>{{post.newTitle}}</li>
+                <li>{{post.description}}</li>
             </ul>
         </div>
     </div>
@@ -15,6 +15,11 @@
 export default {
     name: 'blogList',
 
+    data(){
+        return{
+            allPost: this.$store.state.allItem,
+        }
+    },
 
     props : {
         post: {
@@ -28,5 +33,14 @@ export default {
 </script>
 
 <style scoped>
+
+.post{
+border: 1px solid black;
+margin: 20px 150px 0 150px; 
+}
+
+.post ul li{
+    list-style: none;
+}
 
 </style>

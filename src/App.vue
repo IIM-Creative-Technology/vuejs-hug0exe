@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/admin">Gérer le Blog</router-link> 
+    <router-link to="/admin">Gérer le Blog</router-link>| 
     <router-link to="/blog">Blog</router-link>|
     <router-link to="/create">Créer un blog</router-link>
   </div>
@@ -23,6 +23,7 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  padding: 10px;
 }
 
 #nav a.router-link-exact-active {

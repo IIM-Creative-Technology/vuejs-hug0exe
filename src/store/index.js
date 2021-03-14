@@ -7,6 +7,7 @@ export default createStore({
     mutations: {
         addPost(state, post) {
             state.allItem.push(post);
+
         }
     },
     actions: {},

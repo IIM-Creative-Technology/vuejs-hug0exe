@@ -2,15 +2,18 @@
  <div>
     <h1>PAGE TOUT LES BLOGS</h1>
    
-    <blog-list :post="post"></blog-list>
+    <blogList />
 </div>
 </template>
 
 <script>
-import BlogList from '../components/BlogList.vue'
+
+import BlogList from '../components/BlogList'
+
 export default {
-  components: { BlogList },
-    
+    components: {
+        BlogList,
+    }
 }
 </script>
 
