@@ -1,12 +1,14 @@
 import { createStore } from 'vuex'
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    state: {
+        allItem: []
+    },
+    mutations: {
+        addPost(state, post) {
+            state.allItem.push(post);
+        }
+    },
+    actions: {},
+    modules: {}
 })
