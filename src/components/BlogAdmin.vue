@@ -3,10 +3,16 @@
 
         <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li>{{post.description}}</li>
+                <!--<li>{{post.description}}</li>-->
+                <input type="text" ref="postTitle" :value="post.title" :disabled="!isEditing"
+           :class="{view: !isEditing}">
             </ul>
             <div class="buttons">
                 <!-- <button class="edit" :key="post" @click="editPost(post)">Editer</button> -->
+                 <button @click="isEditing = !isEditing" v-if="!isEditing">Edit</button>
+                  <button @click="save" v-else-if="isEditing">Save</button>
+  
+                <button v-if="isEditing" @click="isEditing = false">Cancel</button>
                 <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
             </div>
         </div>
@@ -21,9 +27,16 @@
 export default {
     name: 'blogAdmin',
 
+    
+
     data(){
+        
+        
+
         return{
             allPost: this.$store.state.allItem,
+            isEditing: false,
+            
         }
     },
 
@@ -33,15 +46,24 @@ export default {
         },
         allItem : {
             type : Array
-        }
+        },
+
+        
+
+        
     },
 
     methods: {
         deletePost(check){
             this.$emit('deleteBlog', check);
+        },
+        
+        save(check){
+            this.$emit('save',check)
         }
+    },
     }
-}
+
 </script>
 
 <style scoped>
