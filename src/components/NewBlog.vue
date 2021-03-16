@@ -20,6 +20,13 @@
         </div>
 
         <button @click="addPost()">Créer la page</button>
+
+        <p v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+            <li v-for="error in errors" :key="error">{{ error }}</li>
+            </ul>
+        </p>
     </div>
     
         
@@ -33,10 +40,11 @@ name: 'newBlog',
     
     data(){
         return {
+            errors:[],
             newTitle:'',
             newMetaTitle:'',
             newMetaDesc:'',
-            newPost:'',
+            newPost:''
         }
     },
     
@@ -50,7 +58,30 @@ name: 'newBlog',
                 }
                 this.$store.commit('addPost',post);
                 this.$router.push('/blog');
-            }
+            },
+
+             checkForm: function (e) {
+                if (this.title && this.metaTitle && this.description && this.contentPost ) {
+                    return true;
+                }
+
+                this.errors = [];
+
+                if (!this.title) {
+                    this.errors.push('Title required.');
+                }
+                if (!this.metaTitle) {
+                    this.errors.push('Meta Title required.');
+                }
+                 if (!this.description) {
+                    this.errors.push('Description required.');
+                }
+                if (!this.contentPost) {
+                    this.errors.push('Content Post required.');
+                }
+
+                e.preventDefault();
+                }
         }
     }
 </script>

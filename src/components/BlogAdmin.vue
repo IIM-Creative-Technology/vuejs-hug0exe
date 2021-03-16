@@ -73,8 +73,4 @@ button{
     background-color: rgb(255, 85, 85);
 }
 
-
-
-
-
 </style>
