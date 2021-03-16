@@ -12,10 +12,10 @@
             </ul>
             <div class="buttons">
                 <!-- <button class="edit" :key="post" @click="editPost(post)">Editer</button> -->
-                 <button @click="isEditing = !isEditing; seen = !seen" v-if="!isEditing">Edit</button>
-                  <button @click="save; seen = !seen" v-else-if="isEditing">Save</button>
+                 <button @click="isEditing = !isEditing; seen = !seen" v-if="!isEditing && !seen">Edit</button>
+                  <button @click="save; seen = !seen" v-if="isEditing && seen">Save</button>
   
-                <button v-if="isEditing" @click="isEditing = false">Cancel</button>
+                <button v-if="isEditing && seen" @click="isEditing = false">Cancel</button>
                 <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
             </div>
             
