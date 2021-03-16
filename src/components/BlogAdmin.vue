@@ -5,19 +5,22 @@
             <ul>
                 <!--<li>{{post.description}}</li>-->
                 <div>
-    First Name:
-    <input type="text" v-model="post.title" :disabled="!isEditing"
+    
+    <input type="text" v-model="post.title" disabled
            :class="{view: !isEditing}">
   </div>
             </ul>
             <div class="buttons">
                 <!-- <button class="edit" :key="post" @click="editPost(post)">Editer</button> -->
-                 <button @click="isEditing = !isEditing" v-if="!isEditing">Edit</button>
-                  <button @click="save" v-else-if="isEditing">Save</button>
+                 <button @click="isEditing = !isEditing; seen = !seen" v-if="!isEditing">Edit</button>
+                  <button @click="save; seen = !seen" v-else-if="isEditing">Save</button>
   
                 <button v-if="isEditing" @click="isEditing = false">Cancel</button>
                 <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
             </div>
+            
+            <div v-if="seen"><input type="text" v-model="post.title" :disabled="!isEditing"
+           :class="{view: !isEditing}">: Title</div>
         </div>
 
     </div>
@@ -39,6 +42,7 @@ export default {
         return{
             allPost: this.$store.state.allItem,
             isEditing: false,
+            seen:false,
             
         }
     },
