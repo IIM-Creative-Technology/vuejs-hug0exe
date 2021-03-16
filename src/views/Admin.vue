@@ -2,7 +2,7 @@
  <div>
     <h1>PAGE ADMIN</h1>
    
-    <blogAdmin :allPost="allPost" @deleteBlog="deletePost"></blogAdmin>
+    <blogAdmin :allPost="allPost" @deleteBlog="deletePost" @save="save"></blogAdmin>
 </div>
 </template>
 
@@ -27,11 +27,12 @@ export default {
         deletePost(check){
             const deleteId = this.allPost.indexOf(check);
             this.allPost.splice(deleteId,2);
-        }
-    }
-}
+        },
+        /*save() {
+      this.allPost.title = this.$refs['postTitle'].value;
+      //this.user.lastName = this.$refs['last_name'].value;
+      this.isEditing = !this.isEditing;
+    },*/
+}}
 </script>
 
-<style scoped>
-
-</style>
