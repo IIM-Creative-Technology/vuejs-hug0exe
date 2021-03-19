@@ -2,7 +2,7 @@
     <div>
         <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li>{{post.description}}</li>
+                <li>{{post.title}}</li>
             </ul>
         </div>
     </div>
