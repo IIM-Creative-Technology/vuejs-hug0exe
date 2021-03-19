@@ -19,8 +19,8 @@
                 <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
             </div>
             
-            <div v-if="seen"><input type="text" v-model="post.title" :disabled="!isEditing"
-           :class="{view: !isEditing}">: Title</div>
+            <div v-if="seen">Title :<input type="text" v-model="post.title" :disabled="!isEditing"
+           :class="{view: !isEditing}"></div>
         </div>
 
     </div>
@@ -33,12 +33,7 @@
 export default {
     name: 'blogAdmin',
 
-    
-
     data(){
-        
-        
-
         return{
             allPost: this.$store.state.allItem,
             isEditing: false,
@@ -53,18 +48,13 @@ export default {
         },
         allItem : {
             type : Array
-        },
-
-        
-
-        
+        },       
     },
 
     mounted() {
     this.cachedPost = Object.assign({}, this.title);
   },
   
-
     methods: {
         deletePost(check){
             this.$emit('deleteBlog', check);
