@@ -1,27 +1,52 @@
 <template>
-    <div>
+ <div>
+<div class="createBtn">
+<button type="submit"><router-link to="/create">Créer une page</router-link></button>
+</div>
 
-        <div class="post" v-for="post in allPost" :key="post">
+   
+
+        <div class="post" v-for="(post, id) in allPost" :key="post" :id="id">
             <ul>
                 <!--<li>{{post.description}}</li>-->
-                <div>
+                <div class="postEdit">
     
-    <input type="text" v-model="post.title" disabled
+    <input type="text"  v-model="post.title" disabled
            :class="{view: !isEditing}">
+           <input v-show="seen" type="text"  v-model="post.metaTitle" disabled
+           :class="{view: !isEditing}">
+           <input v-show="seen" type="text"  v-model="post.description" disabled
+           :class="{view: !isEditing}">
+           <input v-show="seen" type="text"  v-model="post.contentPost" disabled
+           :class="{view: !isEditing}">
+
   </div>
             </ul>
             <div class="buttons">
                 <!-- <button class="edit" :key="post" @click="editPost(post)">Editer</button> -->
-                 <button @click="isEditing = !isEditing; seen = !seen" v-if="!isEditing && !seen">Edit</button>
+                 <button @click="selectSwitch(); seen = !seen;" v-if="!isEditing" >Edit</button>
+
                   <button @click="save; seen = !seen" v-if="isEditing && seen">Save</button>
+                  
   
-                <button v-if="isEditing && seen" @click="isEditing = false">Cancel</button>
+                
+                
                 <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
             </div>
+            <div class="postInput">
             
-            <div v-if="seen">Title :<input type="text" v-model="post.title" :disabled="!isEditing"
+            <div v-show="seen">Title:<input type="text" v-model="post.title" :disabled="!isEditing"
+           :class="{view: !isEditing}"></div>
+           <div v-show="seen">Meta title:<input type="text" v-model="post.metaTitle" :disabled="!isEditing"
+           :class="{view: !isEditing}"></div>
+           <div v-show="seen">Description: <input type="text" v-model="post.description" :disabled="!isEditing"
+           :class="{view: !isEditing}"></div>
+           <div v-show="seen">Content:<input type="text" v-model="post.contentPost" :disabled="!isEditing"
            :class="{view: !isEditing}"></div>
         </div>
+        </div>
+
+        
 
     </div>
 </template>
@@ -34,10 +59,15 @@ export default {
     name: 'blogAdmin',
 
     data(){
+        
+        
+        
         return{
             allPost: this.$store.state.allItem,
             isEditing: false,
             seen:false,
+            
+            
             
         }
     },
@@ -53,6 +83,7 @@ export default {
 
     mounted() {
     this.cachedPost = Object.assign({}, this.title);
+    
   },
   
     methods: {
@@ -62,13 +93,17 @@ export default {
         
         save() {
       this.cachedTitle = Object.assign({}, this.title);
-      this.isEditing = false;
+      this.isEditing = true;
     },
-    cancel() {
-      this.title = Object.assign({}, this.cachedTitle);
-      this.isEditing = false;
-    }
-    },
+    
+     selectSwitch(){
+         this.isEditing = !this.isEditing;
+     },
+
+    
+}
+     
+    
     }
 
 </script>
@@ -100,6 +135,25 @@ button{
 }
 .delete{
     background-color: rgb(255, 85, 85);
+}
+
+.postEdit{
+   display: flex;
+   flex-direction: column;
+}
+
+.postInput{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+
+
+
+.createBtn button a {
+    text-decoration: none;
+    color: black;
 }
 
 </style>
