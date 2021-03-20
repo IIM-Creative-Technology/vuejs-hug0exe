@@ -2,7 +2,7 @@
     <div>
         <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li> <h2 @click="goToBlog(post.id)">{{post.title}} </h2></li>
+                <li> <router-link :to="{name:'articles', params:{Bid:post.id}}">{{post.title}}</router-link></li>
             </ul>
         </div>
     </div>
@@ -17,8 +17,7 @@ export default {
 
     data(){
         return{
-            allPost: this.$store.state.allItem,
-            
+            allPost: this.$store.state.allItem,   
         }
     },
 
@@ -31,12 +30,7 @@ export default {
         },
     },
 
-    methods:{
-        goToBlog(blogId){
-            let articleId=blogId
-            this.$router.push({name:'article',params:{Bid:articleId}})
-        }
-    }
+
 }
 </script>
 

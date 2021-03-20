@@ -66,9 +66,6 @@ export default {
             allPost: this.$store.state.allItem,
             isEditing: false,
             seen:false,
-            
-            
-            
         }
     },
 

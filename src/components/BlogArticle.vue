@@ -1,7 +1,15 @@
 <template>
-<div class="article" v-for="post in allPost" :key="post">
-    <div v-if="articleId == post.id"></div>
-    <h1>{{post.title}} l'index est {{post.id}}</h1></div>    
+<div>
+
+    <div>
+    <h1>{{this.post.title}} l'index est {{this.post.id}}</h1>
+    {{this.post.metaTitle}}
+    {{this.post.description}}
+    {{this.post.contentPost}}
+
+    
+    </div>    
+</div>
 </template>
 
 
@@ -14,9 +22,18 @@ export default {
         return{
             blogId:this.$route.params.Bid,
             allPost: this.$store.state.allItem,
-            
+            post: "",
         }
     },
+    methods: {
+        getPost(){
+            this.post = this.allPost[this.blogId]
+        },
+    },
+
+    beforeMount(){
+        this.getPost()
+    }
     
 }
 </script>
