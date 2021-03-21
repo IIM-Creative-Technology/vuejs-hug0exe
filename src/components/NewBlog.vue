@@ -1,4 +1,5 @@
 <template>
+
     <div id="newBlog">
         <div class="inputs">
             <label for="newImage">Lien de votre image</label>
@@ -25,6 +26,7 @@
 
         <button @click="addPost();" :disabled='!newTitle.length || !newMetaTitle.length || !newMetaDesc.length || !newPost.length'>Créer la page</button>
     </div>
+  
     
         
 </template>
@@ -67,6 +69,7 @@ name: 'newBlog',
     
     
 <style scoped>
+
 #newBlog{
     
     width: 30%;
@@ -85,6 +88,8 @@ label{
 }
 button{
     width: 40%;
+    margin-top: 30px;
+    margin-left: 200px;
 }
 
 </style>

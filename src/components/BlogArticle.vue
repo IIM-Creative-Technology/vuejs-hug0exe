@@ -2,10 +2,11 @@
 <div>
 
     <div>
-    <h1>{{this.post.title}} l'index est {{this.post.id}}</h1>
-    {{this.post.metaTitle}}
-    {{this.post.description}}
-    {{this.post.contentPost}}
+        <h1>{{post.title}}</h1>
+        <img :src="post.image || 'https://i.stack.imgur.com/l60Hf.png'">
+        <h2> {{post.description}}</h2>
+   
+    {{post.contentPost}}
 
     
     </div>    
@@ -40,5 +41,9 @@ export default {
 
 
 <style scoped>
+img{
+    width: 30%;
+    height: 30%;
+}
 
 </style>
