@@ -45,9 +45,7 @@
            <div v-show="seen">Content:<input type="text" v-model="post.contentPost" :disabled="!isEditing"
            :class="{view: !isEditing}"></div>
         </div>
-        </div>
-
-        
+        </div>    
 
     </div>
 </template>
@@ -100,11 +98,9 @@ export default {
          this.isEditing = !this.isEditing;
      },
 
-    
-}
-     
-    
     }
+
+}
 
 </script>
 
