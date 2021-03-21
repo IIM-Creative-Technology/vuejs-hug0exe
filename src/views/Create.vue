@@ -1,7 +1,6 @@
 <template>
 <div>
     <h1>PAGE CREATION</h1>
-
     <new-blog/>
 </div>
 </template>
@@ -11,6 +10,5 @@ import NewBlog from '../components/NewBlog.vue'
 
 export default {
   components: { NewBlog },
- 
 }
 </script>

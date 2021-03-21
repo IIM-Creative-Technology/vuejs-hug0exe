@@ -1,7 +1,6 @@
 <template>
- <div>
+<div>
     <h1>PAGE TOUT LES BLOGS</h1>
-   
     <blogList />
 </div>
 </template>

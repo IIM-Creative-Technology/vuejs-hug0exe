@@ -2,14 +2,12 @@
     <div>
         <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li> <img :src="post.image || 'https://i.stack.imgur.com/l60Hf.png'"><p><router-link :to="{name:'articles', params:{Bid:post.id}}">{{post.title}}</router-link></p></li>
+                <!-- Gestion de l'image -->
+                <li> <img :src="post.image || 'https://i.stack.imgur.com/l60Hf.png'"><p><router-link :to="{name:'articles', params:{Bid:post.id}}">{{post.description}}</router-link></p></li>
             </ul>
         </div>
     </div>
 </template>
-
-
- 
 
 <script>
 export default {
@@ -30,15 +28,14 @@ export default {
         },
     },
 
-
 }
 </script>
 
 <style scoped>
 
 .post{
-border: 1px solid black;
-margin: 20px 150px 0 150px; 
+    border: 1px solid black;
+    margin: 20px 150px 0 150px; 
 }
 
 .post ul li{
@@ -55,9 +52,8 @@ img{
 }
 
 p a{
-
-text-decoration: none;
-color: black
+    text-decoration: none;
+    color: black;
 }
 
 </style>

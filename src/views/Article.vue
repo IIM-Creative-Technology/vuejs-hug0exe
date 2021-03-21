@@ -1,8 +1,8 @@
-<template><div>
-<h1>Tout les articles</h1>
-
-    <blog-article/>
-          </div>
+<template>
+<div>
+  <h1>Tout les articles</h1>
+  <blog-article/>
+</div>
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import BlogArticle from '../components/BlogArticle.vue'
 
 export default {
   name: 'details',
+
   components: { BlogArticle },
 
   data(){
@@ -20,7 +21,6 @@ export default {
     
 }
 </script>
-
 <style scoped>
 
 </style>

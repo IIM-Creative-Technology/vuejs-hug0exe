@@ -1,15 +1,12 @@
 <template>
- <div>
-    <h1>PAGE ADMIN</h1>
-   
-    <blogAdmin :allPost="allPost" @deleteBlog="deletePost" @save="save"></blogAdmin>
+<div>
+     <h1>PAGE ADMIN</h1>
+     <blogAdmin :allPost="allPost" @deleteBlog="deletePost" @save="save"></blogAdmin>
 </div>
 </template>
 
 <script>
-
 import BlogAdmin from '../components/BlogAdmin'
-
 export default {
     name: 'admin',
 
@@ -22,14 +19,6 @@ export default {
               allPost: this.$store.state.allItem,
         }
     },
-
-    methods: {
-        // deletePost(check){
-            // const deleteId = this.allPost.indexOf(check);
-            // this.allPost.splice(deleteId, 1);
-            
-        // },
-
-}}
+}
 </script>
 

@@ -1,5 +1,4 @@
 <template>
-
     <div id="newBlog">
         <div class="inputs">
             <label for="newImage">Lien de votre image</label>
@@ -25,13 +24,8 @@
         </div>
 
         <button @click="addPost();" :disabled='!newTitle.length || !newMetaTitle.length || !newMetaDesc.length || !newPost.length'>Créer la page</button>
-    </div>
-  
-    
-        
+    </div>  
 </template>
-
-
 
 <script>
 export default {
@@ -39,39 +33,35 @@ name: 'newBlog',
     
     data(){
         return {
-            errors:[],
             newTitle:'',
             newMetaTitle:'',
             newMetaDesc:'',
             newPost:'',
             newImage:'',
-            
         }
     },
 
     methods: {
-            addPost() {
-                let post = {
-                    title: this.newTitle,
-                    metaTitle: this.newMetaTitle,
-                    description: this.newMetaDesc,
-                    contentPost: this.newPost,
-                    image: this.newImage,
-                    id: this.$store.state.allItem.length
-                }
-                this.$store.commit('addPost',post);
-                this.$router.push('/blog');
-            },
+        addPost() {
+            let post = {
+                title: this.newTitle,
+                metaTitle: this.newMetaTitle,
+                description: this.newMetaDesc,
+                contentPost: this.newPost,
+                image: this.newImage,
+                id: this.$store.state.allItem.length
+            }
+            this.$store.commit('addPost',post);
+            this.$router.push('/blog');
+        },
             
     }
-    }
+}
 </script>
-    
     
 <style scoped>
 
 #newBlog{
-    
     width: 30%;
     height: 75%;
     display: flex;

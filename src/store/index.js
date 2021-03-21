@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
 
 export default createStore({
+    // Tableau ou on récupère les infos du post et ou on stocke les datas
     state: {
         allItem: []
     },
+    // Fonctions Ajouter et Supprimer
     mutations: {
         addPost(state, post) {
             state.allItem.push(post);
