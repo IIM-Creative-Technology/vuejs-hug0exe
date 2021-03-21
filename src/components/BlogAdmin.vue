@@ -10,7 +10,9 @@
             <ul>
                 <!--<li>{{post.description}}</li>-->
                 <div class="postEdit">
-    
+
+    <input v-show="seen" type="text"  v-model="post.image" disabled
+           :class="{view: !isEditing}">
     <input type="text"  v-model="post.title" disabled
            :class="{view: !isEditing}">
            <input v-show="seen" type="text"  v-model="post.metaTitle" disabled
@@ -27,14 +29,13 @@
                  <button @click="selectSwitch(); seen = !seen;" v-if="!isEditing" >Edit</button>
 
                   <button @click="save; seen = !seen" v-if="isEditing && seen">Save</button>
-                  
-  
                 
-                
-                <button class="delete" :key="post" @click="deletePost(allPost)">Supprimer</button>
+                <button class="delete" :key="post" @click="deletePost(post)">Supprimer</button>
             </div>
             <div class="postInput">
-            
+
+            <div v-show="seen">Image:<input type="text" v-model="post.image" :disabled="!isEditing"
+           :class="{view: !isEditing}"></div>
             <div v-show="seen">Title:<input type="text" v-model="post.title" :disabled="!isEditing"
            :class="{view: !isEditing}"></div>
            <div v-show="seen">Meta title:<input type="text" v-model="post.metaTitle" :disabled="!isEditing"
@@ -84,8 +85,10 @@ export default {
   },
   
     methods: {
-        deletePost(check){
-            this.$emit('deleteBlog', check);
+        deletePost(post){
+            // this.$emit('deleteBlog', check);
+            this.$store.commit("deletePost",post);
+
         },
         
         save() {

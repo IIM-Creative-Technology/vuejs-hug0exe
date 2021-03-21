@@ -2,7 +2,7 @@
     <div>
         <div class="post" v-for="post in allPost" :key="post">
             <ul>
-                <li> <router-link :to="{name:'articles', params:{Bid:post.id}}">{{post.title}}</router-link></li>
+                <li> <img :src="post.image || 'https://i.stack.imgur.com/l60Hf.png'"><p><router-link :to="{name:'articles', params:{Bid:post.id}}">{{post.title}}</router-link></p></li>
             </ul>
         </div>
     </div>
@@ -43,6 +43,21 @@ margin: 20px 150px 0 150px;
 
 .post ul li{
     list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    max-height: 150px;
+    max-width: 150px;
+    padding-right: 100px;
+}
+
+p a{
+
+text-decoration: none;
+color: black
 }
 
 </style>

@@ -24,15 +24,12 @@ export default {
     },
 
     methods: {
-        deletePost(check){
-            const deleteId = this.allPost.indexOf(check);
-            this.allPost.splice(deleteId,2);
-        },
-        /*save() {
-      this.allPost.title = this.$refs['postTitle'].value;
-      //this.user.lastName = this.$refs['last_name'].value;
-      this.isEditing = !this.isEditing;
-    },*/
+        // deletePost(check){
+            // const deleteId = this.allPost.indexOf(check);
+            // this.allPost.splice(deleteId, 1);
+            
+        // },
+
 }}
 </script>
 

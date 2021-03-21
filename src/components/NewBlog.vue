@@ -1,6 +1,9 @@
 <template>
     <div id="newBlog">
-        <input type="file" name="image" id="image">
+        <div class="inputs">
+            <label for="newImage">Lien de votre image</label>
+            <input type="text" v-model="newImage">
+        </div>
         <div class="inputs">
             <label for="newTitle">Titre de la page</label>
             <input type="text" v-model="newTitle" required>
